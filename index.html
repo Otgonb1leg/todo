@@ -1,57 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do App</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Do App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 <body>
-    <div class="container">
-        <button class= "myBtn"id="myBtn">Open Modal</button>
-        <!-- The modal -->
-        <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <input id="taskInput" type="text" placeholder="Enter task">
-                <select id="taskStatusSelect">
-                    <option value="To-Do">To Do</option>
-                    <option value="In-Progress">In Progress</option>
-                    <option value="Done">Done</option>
-                    <option value="Blocked">Blocked</option>
-                </select>
-                <button id="taskSubmitBtn">Submit Task</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="board">
-        <div class="board-Todo">
-            <h2>To Do</h2>
-            <div class="icon">e <br>d</div>
-            <div></div>
-        </div>
-        <div class="board-Inprogress">
-            <h2>In Progress</h2>
-            <div class="icon">e <br>d</div>
-
-          
-        </div>
-        <div class="board-Done">
-          <h2>Done</h2>
-          <div class="icon">e <br>d</div>
-        
+  <div class="container">
+    <button class="myBtn" id="myBtn">Open Modal</button>
+    <!-- The modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <input id="taskInput" type="text" placeholder="Enter task" />
+        <select id="taskStatusSelect">
+          <option value="todo">To Do</option>
+          <option value="inprogress">In Progress</option>
+          <option value="done">Done</option>
+          <option value="blocked">Blocked</option>
+        </select>
+        <button id="taskSubmitBtn">Submit Task</button>
       </div>
-      <div class="board-Blocked">
-        <h2>Blocked</h2>
-        <div class="icon">e <br>d</div>
-      
     </div>
-    
+  </div>
+
+  <div class="board">
+    <div class="board-Todo">
+      <h2>To Do</h2>
+      <div id="board-todo-tasks"></div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="board-Inprogress">
+      <h2>In Progress</h2>
+      
+      <div id="board-inprogress-tasks"></div>
+    </div>
+
+    <div class="board-Done">
+      <h2>Done</h2>
+     
+      <div id="board-done-tasks"></div>
+    </div>
+
+    <div class="board-Blocked">
+      <h2>Blocked</h2>
+      <div id="board-blocked-tasks"></div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

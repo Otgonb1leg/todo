@@ -3,78 +3,69 @@ let _taskInput = document.getElementById("taskInput");
 let _taskStatusSelect = document.getElementById("taskStatusSelect");
 let _taskSubmitBtn = document.getElementById("taskSubmitBtn");
 
-let todoBoard = document.getElementsByClassName("board-Todo")[0];
-let inprogressBoard = document.getElementsByClassName("board-Inprogress")[0];
-
-// let task = {
-//   text: "",
-//   isDone: false,
-//   status: "todo",
-// };
+let todoBoard = document.getElementById("board-todo-tasks");
+let inprogressBoard = document.getElementById("board-inprogress-tasks");
+let doneBoard = document.getElementById("board-done-tasks");  
+let blockBoard = document.getElementById("board-blocked-tasks");
 
 let tasks = [];
-
-// Get the button that opens the modal
 let btn = document.getElementById("myBtn");
 
-// When the user clicks the button, open the modal
 function showModal() {
   modal.style.display = "block";
 }
 
 btn.onclick = showModal;
 
-// When the user clicks on <span> (x), close the modal
 function hideModal() {
   modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
-    hideModal();
+    // hideModal();  
   }
 };
 
 function createTaskElement(text, id, checked) {
-  let isChecked = checked ? "checked" : ""; // ternary
+  let isChecked = checked ? "checked" : ""; 
 
-  let _taskHMTL = `
+  let _taskHTML = `
   <div class="task">
     <input type="checkbox" ${isChecked} />
     <p>${text}</p>
     <div class="flex">
-      <p class="icon">e</p>
-      <p class="icon" onclick="deleteTask(${id})">x</p>
+      <i class="fa fa-trash" aria-hidden="true">
+      <i class="fa fa-pencil" aria-hidden="true" onclick="deleteTask(${id})"</i>
     </div>
   </div>`;
 
-  return _taskHMTL;
+  return _taskHTML;
 }
 
 function deleteTask(id) {
-  let taskIndex = tasks.findIndex((task) => {
-    if (task.id === id) {
-      return task;
-    }
-  });
+  let taskIndex = tasks.findIndex((task) => task.id === id);
 
-  tasks.splice(taskIndex, 1);
-
-  renderTasks();
+  if (taskIndex !== -1) {
+    tasks.splice(taskIndex, 1);
+    renderTasks();
+  }
 }
+
+
+
 
 function submitTask() {
   let taskText = _taskInput.value;
   let taskStatus = _taskStatusSelect.value;
 
-  // validation
+
   if (taskText === "" || taskStatus === "") {
-    alert("hoosen baina");
+    alert("Please enter task text and select a status");
     return;
   }
 
-  let taskId = Math.random();
+  let taskId = Math.random();  
 
   let task = {
     id: taskId,
@@ -84,17 +75,16 @@ function submitTask() {
   };
 
   tasks.push(task);
-
   renderTasks();
 
-  //clear input value
   _taskInput.value = "";
-  hideModal();
 }
 
 function renderTasks() {
   let _todosHTML = "";
   let _inprogressHTML = "";
+  let _doneHTML = "";  
+  let _blockedHTML = "";  
 
   tasks.forEach((task) => {
     let taskText = task.text;
@@ -104,15 +94,20 @@ function renderTasks() {
     let _taskHTML = createTaskElement(taskText, taskId, taskCheck);
 
     if (task.status === "todo") {
-      _todosHTML = _todosHTML + _taskHTML;
-    }
-    if (task.status === "inprogress") {
-      _inprogressHTML = _inprogressHTML + _taskHTML;
+      _todosHTML += _taskHTML;
+    } else if (task.status === "inprogress") {
+      _inprogressHTML += _taskHTML;
+    } else if (task.status === "done") {
+      _doneHTML += _taskHTML;
+    } else if (task.status === "blocked") {
+      _blockedHTML += _taskHTML;
     }
   });
 
   todoBoard.innerHTML = _todosHTML;
   inprogressBoard.innerHTML = _inprogressHTML;
+  doneBoard.innerHTML = _doneHTML;
+  blockBoard.innerHTML = _blockedHTML;
 }
 
 _taskSubmitBtn.addEventListener("click", submitTask);
