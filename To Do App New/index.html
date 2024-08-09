@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Do App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <button class="myBtn" id="myBtn">Open Modal</button>
+    <!-- The modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <input id="taskInput" type="text" placeholder="Enter task" />
+        <select id="taskStatusSelect">
+          <option value="todo">To Do</option>
+          <option value="inprogress">In Progress</option>
+          <option value="done">Done</option>
+          <option value="blocked">Blocked</option>
+        </select>
+        <button id="taskSubmitBtn">Submit Task</button>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <input id="editTaskInput" type="text" placeholder="edit task" />
+    <select id="editTaskStatusSelect">
+      <option value="todo">To Do</option>
+      <option value="inprogress">In Progress</option>
+      <option value="done">Done</option>
+      <option value="blocked">Blocked</option>
+    </select>
+    <button id="editTaskSubmitBtn" class="editTaskSubmitBtn">Edit Task</button>
+  </div>
+
+  <div class="board">
+    <div class="board-Todo">
+      <img src="Rectangle 10 (4).png" alt="" srcset="">
+      <h2>To Do</h2>
+      <div id="board-todo-tasks"></div>
+    </div>
+
+    <div class="board-Inprogress">
+      <img src="Rectangle 10 (5).png" alt="" srcset="">
+      <h2>In Progress</h2>
+      
+      <div id="board-inprogress-tasks"></div>
+    </div>
+
+    <div class="board-Done">
+      <img src="Rectangle 10 (6).png" alt="" srcset="">
+      <h2>Done</h2>
+
+     
+      <div id="board-done-tasks"></div>
+    </div>
+
+    <div class="board-Blocked">
+      
+      <img src="Rectangle 10 (7).png" alt="" srcset="">
+      <h2>Blocked</h2>
+
+
+      
+      <div id="board-blocked-tasks"></div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

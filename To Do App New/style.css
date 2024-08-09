@@ -1,0 +1,68 @@
+body{
+    background-color: #101010 ;
+    width: 1280px;
+    height: 832px;
+    position: absolute;
+    gap: 10px;
+
+
+}
+
+.board{
+  display: flex;
+  justify-content: space-between;
+  color: aliceblue;
+  background-color: #1A1A1A;
+}
+
+
+.board-Todo{
+ 
+  width: 280px;
+  height: 672px;
+  border: 1px solid #333333
+
+  }
+
+  .board-Inprogress{
+    
+    width: 280px;
+    height: 672px;
+    border: 1px solid #333333
+
+    }
+.board-Done{
+    
+      width: 280px;
+      height: 672px;
+      border: 1px solid #333333
+      
+      }
+.board-Blocked{
+    
+        width: 280px;
+        height: 672px;
+        
+        color: aliceblue;
+        border: 1px solid #333333
+        }
+
+.myBtn{
+  background-color: #00A300;
+  width: 109px;
+  height: 44px;
+ 
+}
+
+.modal{
+  background-color:#101010;
+  color: black;
+  
+}
+.task{
+  display: flex;
+  justify-content: space-evenly;
+}
+.editTaskSubmitBtn{
+
+}
